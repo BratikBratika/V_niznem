@@ -5,11 +5,20 @@ function updateCartCount(){
     if(count) count.innerText = cart.length;
 }
 
-function addToCart(product){
+function addToCart(product, button){
+    if(cart.includes(product)){
+        alert("Цей товар вже у кошику 🛍️");
+        return;
+    }
+
     cart.push(product);
     localStorage.setItem("cart", JSON.stringify(cart));
     updateCartCount();
-    alert("Товар додано в кошик 🛍️");
+
+    if(button){
+        button.innerText = "✔ В кошику";
+        button.style.background = "#777";
+    }
 }
 
 function loadCart(){
@@ -24,5 +33,16 @@ function loadCart(){
     }
 }
 
+function checkButtons(){
+    document.querySelectorAll(".btn-gold").forEach(btn=>{
+        const product = btn.getAttribute("data-product");
+        if(cart.includes(product)){
+            btn.innerText = "✔ В кошику";
+            btn.style.background = "#777";
+        }
+    });
+}
+
 updateCartCount();
 loadCart();
+checkButtons();
