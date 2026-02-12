@@ -46,3 +46,11 @@ function checkButtons(){
 updateCartCount();
 loadCart();
 checkButtons();
+
+function openSize(){
+document.getElementById("sizeModal").style.display="flex";
+}
+
+function closeSize(){
+document.getElementById("sizeModal").style.display="none";
+}
