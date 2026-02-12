@@ -1,19 +1,28 @@
-// 📸 Фото товарів
-// Додавай сюди свої назви файлів з папки "img"
-const products = [
-  "prod1.jpg",
-  "prod2.jpg",
-  "prod3.jpg",
-  "prod4.jpg",
-  "prod5.jpg",
-  "prod6.jpg"
-];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-const gallery = document.getElementById("gallery");
+function updateCartCount(){
+    const count = document.getElementById("cart-count");
+    if(count) count.innerText = cart.length;
+}
 
-products.forEach(item => {
-  let card = document.createElement("div");
-  card.className = "card";
-  card.innerHTML = `<img src="img/${item}" alt="Product">`;
-  gallery.appendChild(card);
-});
+function addToCart(product){
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
+    alert("Товар додано в кошик 🛍️");
+}
+
+function loadCart(){
+    const list = document.getElementById("cart-items");
+    if(list){
+        list.innerHTML = "";
+        cart.forEach(item => {
+            let li = document.createElement("li");
+            li.innerText = item;
+            list.appendChild(li);
+        });
+    }
+}
+
+updateCartCount();
+loadCart();
