@@ -27,7 +27,10 @@
 
 <div class="product-card">
 <img src="Capture One Catalog0019.jpg">
-<button onclick="addToCart('Collection 0019')" class="btn-gold">Додати в кошик</button>
+<button data-product="Collection 0019"
+onclick="addToCart('Collection 0019', this)"
+class="btn-gold">Додати в кошик</button>
+
 </div>
 
 <div class="product-card">
@@ -66,3 +69,4 @@
 <script src="script.js"></script>
 </body>
 </html>
+
