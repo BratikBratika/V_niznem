@@ -100,3 +100,18 @@ border:none;
 cursor:pointer;
 font-weight:bold;
 }
+.brand-title{
+font-family:'Cormorant Garamond', serif;
+font-weight:300;
+font-size:80px;
+letter-spacing:6px;
+color:#d4af37;
+}
+
+.logo{
+font-family:'Cormorant Garamond', serif;
+font-weight:400;
+font-size:32px;
+color:#d4af37;
+}
+
